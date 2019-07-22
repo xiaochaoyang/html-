@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            background-color: #d73d32;
+            padding: 0;
+        }
+        div::first-letter {
+            color: green;
+        }
+        div::before {
+            content: "sfsdfsd";
+            width: 10px;
+            height: 20px;
+            /*color: yellow;*/
+        }
+        a[href^="http"]::after {
+            content: "[" attr(href) "] +" attr(name);
+        }
+        /*div::after {*/
+        /*    content: "1235";*/
+        /*    color: #53a93f;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div>我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字</div>
+<a href="http://www.baidu.com" name="baidu">百度</a>
+<a href="http://www.jd.com">京东</a>
+<a href="http://www.taobao.com">淘宝</a>
+<a href="#">呵呵</a>
+<a>哈哈</a>
+</body>
+</html>

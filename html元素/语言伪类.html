@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>语言伪类</title>
+    <style>
+        /*div:lang(en) {*/
+        /*    color: red;*/
+        /*}*/
+        div[lang|="en"] {
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+<div>文字内容1</div>
+<div lang="en">文字内容2</div>
+<div lang="zh">文字内容3</div>
+<div lang="en-us">文字内容4</div>
+</body>
+</html>

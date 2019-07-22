@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类-1</title>
+    <style>
+        /*span:nth-child(-n+2) {*/
+        /*    color: #00ff00;*/
+        /*}*/
+        /*span:nth-last-child(2n) {*/
+        /*    color: red;*/
+        /*}*/
+        span:nth-child(n+2):nth-last-child(n+2){
+            color: #d73d32;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    <span>span4</span>
+    <span>span5</span>
+    <span>span6</span>
+    <span>span7</span>
+    <span>span8</span>
+    <span>span9</span>
+    <span>span10</span>
+    <span>span11</span>
+    <span>span12</span>
+    <span>span13</span>
+    <span>span14</span>
+    <span>span15</span>
+</div>
+
+</body>
+</html>

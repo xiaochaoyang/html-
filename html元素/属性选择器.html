@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*[href] {*/
+        /*    color: red;*/
+        /*}*/
+        /*[href^="mailto:"] {*/
+        /*    color: green;*/
+        /*}*/
+        /*[href$=".com"] {*/
+        /*    color: black;*/
+        /*}*/
+        /*[lang|="zh"] {*/
+        /*    color: red;*/
+        /*}*/
+        /*[href*="520it.com"] {*/
+        /*    color: #53a93f;*/
+        /*}*/
+        /*div span {*/
+        /*    color: red;*/
+        /*}*/
+        /*.name>div>#title>p>[title] {*/
+        /*    color:red;*/
+        /*}*/
+        /*div+p strong>span span {*/
+        /*    color: #57b5e3;*/
+        /*}*/
+        /*div.one#title[title] {*/
+        /*    color: red;*/
+        /*    font-size: 40px;*/
+        /*}*/
+        input[type="text"],textarea {
+            color: red;
+        }
+        /*[title="one"]>span>strong~em {*/
+        /*    color: green;*/
+        /*}*/
+        #cat~em {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--<a href="http://www.baidu.com">百度</a>-->
+<!--<a>京东</a>-->
+<!--<a href="http://www.163.com">网易</a>-->
+
+<!-- <a href="http://www.baidu.com">百度</a>-->
+<!--<a href="http://www.163.com">网易</a>-->
+<!--<a href="mailto:12345@qq.com">发邮件1</a>-->
+<!--<a href="mailto:444@qq.com">发邮件2</a>-->
+<!--<a href="dsfsmailto:fdwe">发邮件3</a>-->
+
+<!--<div lang="zh">zh</div>-->
+<!--<div lang="en-US">en-us</div>-->
+<!--<div lang="en-gb">en-gb</div>-->
+<!--<div lang="zh-tw">zh-tw</div>-->
+
+<!--<a href="http://www.520it.com">123</a>-->
+<!--<a href="http://520it.com">234</a>-->
+<!--<a href="http://520it.com/aboutus">456</a>-->
+<!--<a href="http://bbs.520it.com">ssfds</a>-->
+<!--<a href="sfdsdf">sdfs</a>-->
+
+<!--<span>span1</span>-->
+<!--<span>span2</span>-->
+<!--<span>span3</span>-->
+<!--<div>-->
+<!--    <span>span4</span>-->
+<!--    <span>span4</span>-->
+<!--    <span>span4</span>-->
+<!--    <span>span4</span>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    <p>-->
+<!--        <strong><span>span5</span></strong>-->
+<!--    </p>-->
+<!--</div>-->
+<!--<div>-->
+
+<!--</div>-->
+<!--<p>-->
+<!--    <strong>-->
+<!--        <span>span1-->
+<!--            <span>-->
+<!--                <span>-->
+<!--                    <span>span2</span>-->
+<!--                </span>-->
+<!--            </span>-->
+<!--        </span>-->
+<!--    </strong>-->
+<!--</p>-->
+
+<!--<div class="name">-->
+<!--    <div>-->
+<!--        <div id="title">-->
+<!--            <p>-->
+<!--                <span title="312312">321312</span>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <span>span4</span>-->
+<!--    <span>span4</span>-->
+<!--    <p>-->
+<!--        <span>span4</span>-->
+<!--        <span>span4</span>-->
+<!--    </p>-->
+
+<!--</div>-->
+
+<!--<div class="one" id="title" title="name">-->
+<!--    123-->
+<!--</div>-->
+<!--<input type="text">-->
+<!--<input type="text">-->
+<!--<input type="button">-->
+<!--<input type="checkbox">-->
+<!--<input type="color">-->
+<!--<textarea></textarea>-->
+
+<div><em>em0</em></div>
+<div class="box">
+    <div><p>paper</p></div>
+    <p>
+        <span>span</span>
+        <strong>
+            <span title="one">
+                <strong id="dog">strong-dog</strong>
+                <span>
+                    <em>em1</em>
+                    <strong id="cat">strong-cat</strong>
+                    <em>em2</em>
+                    <em>em3</em>
+                    <em>em4</em>
+                </span>
+            </span>
+        </strong>
+    </p>
+</div>
+
+
+
+</body>
+</html>

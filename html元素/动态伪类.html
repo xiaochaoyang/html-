@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态伪类</title>
+    <style>
+        a:link {
+            color: red;
+        }
+        a:visited {
+            color: #57b5e3;
+        }
+        a:hover {
+            color: #53a93f;
+        }
+        a:active {
+            color: yellow;
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #53a93f;
+        }
+
+        div:hover {
+            background-color: #f6c12a;
+        }
+        div:active {
+            background-color: #d73d32;
+        }
+
+    </style>
+</head>
+<body>
+
+<a href="http://www.baidu.com">百度</a>
+<div>我是div</div>
+
+</body>
+</html>

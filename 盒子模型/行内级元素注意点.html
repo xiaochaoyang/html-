@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        行内级非替换元素
+        1.不支持width、height、margin-top、margin-bottom、margin-right
+        */
+        span {
+            background-color: #ff0000;
+            margin-top: 40px;
+            margin-bottom: 50px;
+            margin-left: 40px;
+            padding: 10px;
+            /*margin-right: 40px;*/
+        }
+        /*
+        行内级替换元素、inline-block、块级元素
+        1.支持width、height、margin-top、margin-bottom
+        */
+        img {
+            width: 100px;
+            height: 100px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+            margin-left: 40px;
+        }
+
+        div {
+            background-color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="../images/test.jpg">
+</div>
+
+</body>
+</html>

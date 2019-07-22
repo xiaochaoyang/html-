@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inline-block练习</title>
+    <style>
+        .page {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .page li {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .page .pre, .page .next {
+            width: 70px;
+        }
+        .page li a {
+            background-color: #ffffff;
+            display: block;
+            height: 30px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            color: #00f;
+        }
+        .page li a:active {
+            color: #ff0000;
+        }
+        .page li a:hover {
+            background-color: #f2f8ff;
+            border: 1px solid #38f;
+        }
+        .page li strong {
+            background-color: #ffffff;
+            display: block;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul class="page">
+    <li class="pre">
+        <a href="#33">&lt;上一页</a>
+    </li>
+    <li>
+        <a href="#22">1</a>
+    </li>
+    <li>
+        <a href="#22">2</a>
+    </li>
+    <li>
+        <strong>3</strong>
+    </li>
+    <li>
+        <a href="#22">4</a>
+    </li>
+    <li>
+        <a href="#22">5</a>
+    </li>
+    <li>
+        <a href="#22">6</a>
+    </li>
+    <li class="next">
+        <a href="#33">下一页&gt;</a>
+    </li>
+</ul>
+</body>
+</html>
