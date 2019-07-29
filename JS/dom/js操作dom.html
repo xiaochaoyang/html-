@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+
 </head>
 <body>
-$END$
+
+<div id="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+<script>
+    var box = document.getElementById('box');
+    box.style.width = '100px';
+    box.style.height = '100px';
+    box.style.backgroundColor = 'red';
+    console.log(box.innerHTML);
+    console.log(box.innerText);
+    box.innerHTML = '<h1>MT</h1><p>我是段落</p>';
+</script>
 </body>
 </html>

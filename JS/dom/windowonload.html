@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        console.log(box);
+        box.onclick = function () {
+            alert(1);
+        };
+    }
+</script>
+<div id="box">
+    我是div
+</div>
 </body>
 </html>

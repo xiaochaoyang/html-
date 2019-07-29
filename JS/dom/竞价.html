@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 150px;
+            height: 230px;
+            margin: 100px auto;
+            border: 1px solid #000000;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
+<div id="box">
+    <img src="images/11.jpg">
+    <h2 id="oh2">低价是1000元</h2>
+    <button id="btn">开始竞价</button>
+</div>
+<script>
+    var btn = document.getElementById('btn');
+    var oh2 = document.getElementById('oh2');
+    var  orgPrice = 1000;
+    btn.onclick = function () {
+        var org = prompt("请输入价格");
+        var price = Number(org);
+        if (isNaN(price)){
+            alert("请输入数字");
+        } else {
+            if (org == null || org == ''){
 
+            } else {
+                if (price > orgPrice){
+                    oh2.innerHTML = '底价是' + price + '元';
+                    orgPrice = price;
+                } else {
+                    alert("请输入大于"+ orgPrice + "的值");
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>

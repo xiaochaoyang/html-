@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="btns">
+    <button>全选</button>
+    <button>不选</button>
+    <button>反选</button>
+</div>
+<div id="box">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+</div>
+<script>
+    var box1 = document.getElementById('btns');
+    var btns = box1.getElementsByTagName('button');
+    var inputs = document.getElementById('box').getElementsByTagName('input');
+    btns[0].onclick = function () {
+        for (var i = 0;i < inputs.length;i++){
+            var inp = inputs[i];
+            inp.checked = true;
+        }
+    }
+    btns[1].onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            var inp = inputs[i];
+            inp.checked = false;
+        }
+    }
+    btns[2].onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            var inp = inputs[i];
+            inp.checked = !inp.checked;
+        }
+    }
+</script>
 </body>
 </html>

@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .current {
+            background-color: red;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 10px #000000;
+        }
+    </style>
+
 </head>
 <body>
-$END$
+<button>第1个按钮</button>
+<button>第2个按钮</button>
+<button>第3个按钮</button>
+<button>第1个按钮</button>
+<button>第2个按钮</button>
+<button>第3个按钮</button>
+<script>
+    var btns = document.getElementsByTagName('button');
+    btns[0].onclick = function () {
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].className = '';
+        }
+        btns[0].className = 'current';
+    };
+    btns[1].onclick = function () {
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].className = '';
+        }
+        btns[1].className = 'current';
+    };
+    btns[2].onclick = function () {
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].className = '';
+        }
+        btns[2].className = 'current';
+    }
+</script>
 </body>
 </html>

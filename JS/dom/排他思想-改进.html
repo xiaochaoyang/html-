@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .current {
+            background-color: red;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 10px #000000;
+        }
+    </style>
 </head>
 <body>
-
+<button>第一个按钮</button>
+<button>第二个按钮</button>
+<button>第三个按钮</button>
+<button>第四个按钮</button>
+<script>
+    var btns = document.getElementsByTagName('button');
+    btns[0].onclick = function () {
+        btns[1].className = '';
+        btns[2].className = '';
+        btns[0].className = 'current';
+    };
+    btns[1].onclick = function () {
+        btns[0].className = '';
+        btns[2].className = '';
+        btns[1].className = 'current';
+    }
+    btns[2].onclick = function () {
+        btns[0].className = '';
+        btns[1].className = '';
+        btns[2].className = 'current';
+    }
+</script>
 </body>
 </html>

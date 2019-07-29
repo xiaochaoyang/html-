@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-$END$
+<button>第一个按钮</button>
+<button>第二个按钮</button>
+<button>第三个按钮</button>
+<script>
+    var btns = document.getElementsByTagName('button');
+    btns[0].onclick = function () {
+        btns[1].style.backgroundColor = '';
+        btns[1].style.fontSize = '';
+        btns[2].style.backgroundColor = '';
+        btns[2].style.fontSize = '';
+        btns[0].style.backgroundColor = 'red';
+        btns[0].style.fontSize = '20px';
+    }
+    btns[1].onclick = function () {
+        btns[0].style.backgroundColor = '';
+        btns[0].style.fontSize = '';
+        btns[2].style.backgroundColor = '';
+        btns[2].style.fontSize = '';
+        btns[1].style.backgroundColor = 'red';
+        btns[1].style.fontSize = '20px';
+    }
+    btns[2].onclick = function () {
+        btns[0].style.backgroundColor = '';
+        btns[0].style.fontSize = '';
+        btns[1].style.backgroundColor = '';
+        btns[1].style.fontSize = '';
+        btns[2].style.backgroundColor = 'red';
+        btns[2].style.fontSize = '20px';
+    }
+</script>
 </body>
 </html>
