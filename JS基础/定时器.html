@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    var  i = 0;
+    var  timer = setInterval(function () {
+        console.log(222);
+        i++;
+        if (i == 5) {
+            clearInterval(timer);
+            console.log('清空定时器');
+        }
+    },1000);
+</script>
 </body>
 </html>

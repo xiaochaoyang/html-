@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    var arr = [1,2,3,4,5];
+    var arr2 = [6,7,8,9,0];
+    console.log('length' + arr.length);
+    arr.concat(arr2);
+    console.log(arr.concat(arr2));
+    console.log(arr.join(','));
+    console.log(arr.pop());
+    console.log(arr.push(7));
+    console.log(arr.shift());
+    console.log(arr.unshift(0));
+    console.log(arr.reverse());
+    console.log(arr.slice(2,-1));
+    var arr3 = arr.sort(function (a, b) {
+        return b - a;
+    });
+    console.log(arr3);
+    arr3.splice(1,0,2);
+    console.log(arr3);
+    arr3.splice(1,1,2,2,2,);
+    console.log(arr3);
+    arr3.forEach(function (ele, index) {
+        console.log(ele);
+        console.log('index' + index);
+    });
+    var arr4 = arr3.map(function (value,index,list) {
+        return value * 2;
+    })
+    console.log(arr4);
+</script>
 </body>
 </html>

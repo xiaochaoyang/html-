@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-$END$
+<input id="inp" type="file">
+<script>
+    var inp = document.getElementById('inp');
+    inp.onchange = function () {
+        var path = inp.value;
+        console.log(path);
+        var index = path.lastIndexOf('.');
+        console.log(index);
+        var suffix = path.slice(index+1);
+        console.log(suffix);
+        suffix = suffix.toLowerCase();
+        console.log(suffix);
+        if (suffix === 'png' || suffix === 'jpg' || suffix === 'jpeg' || suffix === 'gif') {
+            alert('格式正确');
+        } else {
+            alert('格式不正确，请重新上传');
+        }
+    }
+</script>
 </body>
 </html>
