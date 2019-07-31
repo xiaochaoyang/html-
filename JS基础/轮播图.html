@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #000000;
+            overflow: hidden;
+        }
+        #box ul {
+            width: 1800px;
+            height: 200px;
+            list-style: none;
+            position: relative;
+        }
+        #box ul li {
+            float: left;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="box">
+    <ul id="oul">
+        <li><img src="images/01.jpg"></li>
+        <li><img src="images/02.jpg"></li>
+        <li><img src="images/03.jpg"></li>
+        <li><img src="images/04.jpg"></li>
+        <li><img src="images/01.jpg"></li>
+        <li><img src="images/02.jpg"></li>
+    </ul>
+</div>
+<script>
+    var oul = document.getElementById('oul');
+    var offsetX = 0;
+    setInterval(function () {
+        offsetX -= 5;
+        if (offsetX <= -1200) {
+            offsetX = 0;
+        }
+        oul.style.left = offsetX + 'px';
+    },10);
+</script>
 </body>
 </html>

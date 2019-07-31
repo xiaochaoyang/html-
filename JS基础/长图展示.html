@@ -3,8 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 640px;
+            height: 500px;
+            border: 1px solid #000000;
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #box img {
+            position: absolute;
+        }
+        #box_top {
+            width: 640px;
+            height: 250px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #box_bottom {
+            width: 640px;
+            height: 250px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-
+<div id="box">
+    <img src="images/girl.jpg" id="pic" alt="">
+    <span id="box_top">1</span>
+    <span id="box_bottom">2</span>
+</div>
+<script>
+    var box_top = document.getElementById('box_top');
+    var box_bottom = document.getElementById('box_bottom');
+    var pic = document.getElementById('pic');
+    var offsetY = 0;
+    var timer = null;
+    box_top.onmouseover = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            offsetY -= 5;
+            if (offsetY <= -405) {
+                clearInterval(timer);
+                offsetY = -405;
+            }
+            pic.style.top = offsetY + 'px';
+        },20);
+    }
+    box_bottom.onmouseover = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            offsetY +=5;
+            if (offsetY >= 0) {
+                clearInterval(timer);
+                offsetY = 0;
+            }
+            pic.style.top = offsetY + 'px';
+        },20);
+    }
+</script>
 </body>
 </html>
