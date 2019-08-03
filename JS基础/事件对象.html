@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+        }
+    </style>
 </head>
 <body>
-
+<div id="box">点我啊</div>
+<script>
+    // var box = document.getElementById('box');
+    // box.onclick = function (event) {
+    //     var eve = event || window.event;
+    //     console.log(eve.clientX);
+    //     console.log(eve.clientY);
+    // }
+    document.onclick = function (event) {
+        console.log(event.clientY);
+        console.log(event.clientX);
+    }
+</script>
 </body>
 </html>

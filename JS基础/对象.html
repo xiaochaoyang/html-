@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-
+<script>
+    var zs = {
+        score: 90,
+        name: 'zs',
+        age:18
+    }
+    console.log(zs.score);
+    zs.score = 80;
+    zs['name'] = 'aaa';
+    // zs['sex'] = '男';
+    zs.sex = '男';
+    console.log(zs);
+    delete zs.sex;
+    console.log(zs);
+    for (var key in zs) {
+        console.log(key,typeof key);
+        console.log(zs[key]);
+    }
+</script>
 </body>
 </html>

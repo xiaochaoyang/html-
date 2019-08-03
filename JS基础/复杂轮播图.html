@@ -2,9 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 640px;
+            height: 270px;
+            border: 1px solid #000000;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #box ul {
+            width: 9999px;
+            height: 270px;
+            list-style: none;
+            position: relative;
+        }
+        #box ul li {
+            float: left;
+        }
+        #box .pre,#box .next {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            line-height: 30px;
+        }
+        #box .pre {
+            left: 0;
+        }
+        #box .next {
+            right: 0;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="box">
+    <ul id="oul">
+        <li><img src="images/01.jpg"></li>
+        <li><img src="images/02.jpg"></li>
+        <li><img src="images/03.jpg"></li>
+        <li><img src="images/04.jpg"></li>
+        <li><img src="images/02.jpg"></li>
+        <li><img src="images/01.jpg"></li>
+    </ul>
+    <span class="pre" id="pre">&lt;</span>
+    <span class="next" id="next">&gt;</span>
+</div>
+<script>
+    var oul = document.getElementById('oul');
+    var next = document.getElementById('next');
+    var pre = document.getElementById('pre');
+    var timer = null;
+    var offsetX = 0;
+    var flag = false;
+    var index = 0;
+    next.onclick = function () {
+        if (flag == false) {
+            flag = true;
+        } else {
+            return;
+        }
+        clearInterval(timer);
+        index++;
+        if (index > 5) {
+            oul.style.left = 0;
+            offsetX = 0;
+            index = 1;
+        }
+        timer = setInterval(function () {
+            offsetX -=5;
+            if (offsetX <= -640 * index) {
+                clearInterval(timer)
+                offsetX = -640 * index;
+                flag = false;
+            }
+            oul.style.left = offsetX + 'px';
+        },10);
+    }
+    pre.onclick = function () {
+        if (flag == false) {
+            flag = true;
+        } else {
+            return;
+        }
+        clearInterval(timer);
+        index--;
+        if (index < 0) {
+            oul.style.left = -640 * 5 + 'px';
+            offsetX = -640 * 5;
+            index = 4;
+        }
+        timer = setInterval(function () {
+            offsetX +=5;
+            if (offsetX >= -640 * index) {
+                clearInterval(timer);
+                offsetX = -640 * index;
+                flag = false;
+            }
+            oul.style.left = offsetX + 'px';
+        },10);
+    }
+</script>
 </body>
 </html>

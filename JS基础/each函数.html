@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-
+<ul id="oul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<ul id="ou1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script src="js/utils.js"></script>
+<script>
+    var list = document.querySelectorAll('#oul li');
+    var list1 = document.querySelectorAll('ou1 li');
+    var arr = ['zs','lisi','ww'];
+    // each(arr,function (ele, index) {
+    //     console.log(ele);
+    //     console.log(index);
+    // })
+    // var arr1 = ['zs1','lisi1','ww1'];
+    // each(arr,function (ele, index) {
+    //     console.log(ele);
+    //     console.log(index);
+    // })
+    list.forEach(function (ele, index, num) {
+        // console.log(ele);
+        // console.log(index);
+        // console.log(num);
+        console.log(this);
+    },list)
+</script>
 </body>
 </html>

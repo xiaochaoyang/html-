@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
-
+<button id="btn">缓动动画</button>
+<div id="box"></div>
+<script>
+    var btn = document.querySelector('#btn');
+    var box = document.querySelector('#box');
+    var timer = null;
+    var begin = 0;
+    var end = 800;
+    btn.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            var speed = (end - begin) / 10;
+            begin = begin + speed;
+            if (Math.ceil(begin) === end) {
+                clearInterval(timer);
+                begin = end;
+            }
+            box.style.left = begin + 'px';
+        },20)
+    }
+</script>
 </body>
 </html>

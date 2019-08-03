@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box ul {
+            width: 100px;
+            height: 100px;
+            background-color: #cccccc;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="box">
+
+</div>
+<script>
+    var box = document.getElementById('box');
+    var data = {
+        "box": [
+            {name:'zs',age:18},
+            {name:'ls',age:28,sex:'男'},
+            {name:'ww',age:19,sex:'男'},
+            {name:'小花',age:18,sex:'女'}
+        ]
+    };
+    var dataArr = data.box;
+    for (var i=0;i<dataArr.length;i++){
+        var oul = document.createElement('ul');
+        box.appendChild(oul);
+        var obj = dataArr[i];
+        for (var key in obj) {
+            var li = document.createElement('li');
+            oul.appendChild(li);
+            li.innerHTML = key + ':' + obj[key];
+        }
+    }
+</script>
 </body>
 </html>
