@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div>我是div</div>
+<div>我是div2</div>
+<p id="op">我是段落</p>
+<div>我是div3</div>
+<div>我是div4</div>
+<script>
+    var op = document.getElementById('op');
+    console.log(op.nextElementSibling);
+    console.log(op.nextSibling);
+    op.nextElementSibling.style.backgroundColor = 'red';
+
+</script>
+</body>
+</html>

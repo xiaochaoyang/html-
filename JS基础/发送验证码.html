@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<input typeof="text">
+<button id="btn">发送验证码</button>
+<script>
+    var btn = document.getElementById('btn');
+
+    var timer = null;
+
+    btn.onclick = function () {
+        var second = 5;
+        clearInterval(timer);
+        timer = setInterval(function () {
+            second--;
+            if (second <= 0) {
+                clearInterval(timer);
+                btn.innerHTML = '重新发送验证码';
+            } else {
+                btn.innerHTML = '剩余' + second + '秒';
+            }
+        },1000);
+    };
+</script>
+</body>
+</html>

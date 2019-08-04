@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h2 id="oh2">在5秒之后跳转</h2>
+<script>
+    var oh2 = document.getElementById('oh2');
+    var count = 5;
+    // var timer = setInterval(function () {
+    //     count--;
+    //     if (count <= 1) {
+    //         clearInterval(timer);
+    //         window.location.href = 'http://www.baidu.com';
+    //     }
+    //     oh2.innerHTML = '在' + count + '秒之后跳转';
+    // },1000);
+    var timer = setTimeout(function () {
+        count --;
+        if (count <= 1) {
+            clearInterval(timer);
+            // window.location.href = 'https://www.baidu.com';
+        } else {
+            oh2.innerHTML = '在' + count + '秒之后跳转';
+            console.log(arguments.callee);
+            timer = setTimeout(arguments.callee,1000);
+        }
+    },1000);
+</script>
+</body>
+</html>

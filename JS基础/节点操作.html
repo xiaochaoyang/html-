@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body id="obody">
+<div id="btn">添加</div>
+<div id="box">
+    <p>我是段落</p>
+    <p id="op">
+        1111
+        <span>dafda</span>
+        <span>dafda</span>
+        <span>dafda</span>
+        <span>dafda</span>
+    </p>
+</div>
+<script>
+    var obody = document.getElementById('obody');
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+    var op = document.getElementById('op');
+    btn.onclick = function (newChild) {
+        // box.innerHTML = box.innerHTML + '<h1>我是标题</h1>';
+        var h1 = document.createElement('h1');
+        h1.innerHTML = '我是标题2';
+        // console.log(h1);
+        // box.appendChild(h1);
+        // box.insertBefore(h1,op);
+        // var h2 = document.createElement('h2');
+        // h2.innerHTML = 'h2';
+        // box.insertBefore(h2,null);
+        // box.removeChild(op);
+        var p = op.cloneNode(true);
+        console.log(p);
+        box.appendChild(p);
+    }
+</script>
+</body>
+</html>

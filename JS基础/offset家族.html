@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        #father {
+            width: 300px;
+            height: 300px;
+            background-color: #ffff00;
+            /*margin-left: 50px;*/
+            position: relative;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            margin-left: 50px;
+            padding: 10px;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="box"></div>
+</div>
+<script>
+    var box = document.getElementById('box');
+    box.style.width = '200px';
+    var w = box.style.width;
+    // console.log(w,typeof w);
+    // console.log(parseInt(w));
+    // console.log(parseFloat(w));
+    // console.log(box.offsetWidth,box.offsetHeight);
+    console.log(box.offsetLeft,box.offsetTop);
+    console.log(box.offsetParent,box.parentNode,box.parentElement);
+</script>
+</body>
+</html>

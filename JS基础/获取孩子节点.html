@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<ul id="oul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <span></span>
+</ul>
+<script>
+    var oul = document.getElementById('oul');
+    console.log(oul.childNodes);
+    var list = oul.childNodes;
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+        var ele = list[i];
+        if (ele.nodeType != 3) {
+            arr.push(ele);
+        }
+    }
+    console.log(arr);
+    console.log(oul.children);
+    var list = oul.children;
+    console.log(list[0]);
+</script>
+</body>
+</html>

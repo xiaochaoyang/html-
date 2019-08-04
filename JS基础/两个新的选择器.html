@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box span {
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span class="ospan">span1</span>
+    <span class="ospan">span2</span>
+</div>
+<script>
+    var box = document.getElementById('box');
+    var span = box.children[0];
+    console.log(span);
+    span = document.querySelector('#box span');
+    console.log(span);
+    var list = document.querySelectorAll('#box .ospan');
+    console.log(list);
+</script>
+</body>
+</html>

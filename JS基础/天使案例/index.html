@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #pic {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="images/110.gif" alt="" id="pic">
+<script>
+    var pic = document.getElementById('pic');
+    var beginX = 0;
+    var endX = 0;
+    var beginY = 0;
+    var endY = 0;
+    document.onmousemove = function (event) {
+        console.log(event.clientX,event.clientY);
+        endX = event.clientX;
+        endY = event.clientY;
+    }
+    setInterval(function () {
+        beginX = beginX + (endX - beginX) / 10;
+        beginY = beginY + (endY - beginY) / 10;
+        pic.style.left = beginX + 'px';
+        pic.style.top = beginY + 'px';
+    },100)
+</script>
+</body>
+</html>

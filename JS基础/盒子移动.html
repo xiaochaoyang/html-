@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var box = document.getElementById('box');
+    box.onmousedown = function (event) {
+        var eve = event || window.event;
+        var distanceX = eve.clientX - box.offsetLeft;
+        var distanctY = eve.clientY - box.offsetTop;
+        document.onmousemove = function (event) {
+            box.style.left = event.clientX - distanceX + 'px';
+            box.style.top = event.clientY - distanctY + 'px';
+        }
+    }
+    box.onmouseup = function () {
+        document.onmousemove = null;
+        console.log(1111);
+    }
+</script>
+</body>
+</html>
