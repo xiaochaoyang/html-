@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            margin-top: 10px;
+            position: relative;
+        }
+        #box button {
+            width: 100px;
+            height: 100px;
+            background-color: #ffff00;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">每行3列</button>
+<button id="btn2">每行4列</button>
+<div id="box">
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+</div>
+<script>
+    var btn1 = document.querySelector('#btn1');
+    var btn2 = document.querySelector('#btn2');
+    var btns = document.querySelectorAll('#box button');
+    btn1.onclick = function () {
+        var count = 3;
+        var row = 0;
+        var col = 0;
+        for (var i = 0; i < btns.length;i++){
+            row = parseInt(i / count);
+            col = i % count;
+            var x = (100 + 10) * col;
+            var y = (100 + 10) * row;
+            btns[i].style.left = x + 'px';
+            btns[i].style.top = y + 'px';
+            btns[i].style.position = 'absolute';
+            btns[i].innerText = i;
+        }
+    }
+    btn2.onclick = function () {
+        var count = 4;
+        var row = 0;
+        var col = 0;
+        for (var i=0;i<btns.length;i++){
+            row = parseInt(i / count);
+            col = i % count;
+            var x = (100 + 10) * col;
+            var y = (100 + 10) * row;
+            btns[i].style.left = x + 'px';
+            btns[i].style.top = y + 'px';
+            btns[i].style.position = 'absolute';
+            btns[i].innerText = i;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            border: 1px solid #000000;
+            margin: 100px auto;
+            text-align: center;
+            padding: 20px 0;
+        }
+        #box textarea {
+            width: 350px;
+            height: 150px;
+            resize: none;
+        }
+        #box .content ul {
+            width: 350px;
+            list-style: none;
+            text-align: left;
+            margin-left: 85px;
+        }
+        #box .content ul li {
+            line-height: 30px;
+            height: 30px;
+            border-bottom: 1px dashed #cccccc;
+        }
+        #box .content ul li a {
+            float: right;
+            color: #666;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    发微博:
+    <textarea></textarea>
+    <button>发布</button>
+    <div class="content">
+        <ul>
+<!--            <li><a>删除</a></li>-->
+        </ul>
+    </div>
+</div>
+<script>
+    var btn = document.querySelector('#box button');
+    var textAre = document.querySelector('#box textarea');
+    var oul = document.querySelector('#box .content ul');
+    btn.onclick = function () {
+        var text = textAre.value.trim();
+        if (text === '') {
+            alert('请输入内容');
+            return;
+        }
+        var li = document.createElement('li');
+        oul.insertBefore(li,oul.children[0]);
+        li.innerHTML = text;
+        var a = document.createElement('a');
+        a.href = 'javascript:;';
+        a.innerHTML = '删除';
+        li.appendChild(a);
+        a.onclick = function () {
+            var li = this.parentNode;
+            oul.removeChild(li);
+        }
+        textAre.value = '';
+    }
+</script>
+</body>
+</html>

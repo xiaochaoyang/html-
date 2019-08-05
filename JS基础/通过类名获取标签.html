@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+<button class="box">5</button>
+<span>6</span>
+<script src="js/utils.js"></script>
+<script>
+    var boxs = document.getElementsByClassName('box');
+    // console.log(boxs);
+    // console.log(document.getElementsByClassName);
+    // console.log(Boolean(document.getElementsByClassName));
+    var list = getElementsClassName(document.body,'box');
+    console.log(list);
+</script>
+</body>
+</html>

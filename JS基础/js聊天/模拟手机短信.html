@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 289px;
+            height: 594px;
+            background: url("clockImages/2.1.1.2.png");
+            margin: 100px auto;
+            padding-top: 75px;
+            padding-left: 23px;
+            box-sizing: border-box;
+        }
+        .wrap .box {
+            width: 240px;
+            height: 420px;
+            border: 3px solid #000000;
+        }
+        .wrap .box .top {
+            width: 240px;
+            height: 370px;
+            background: white;
+            padding: 20px 5px 0;
+            box-sizing: border-box;
+            border-bottom: 2px solid #cccccc;
+        }
+        .wrap .box .top ul {
+            width: 230px;
+            height: 350px;
+            overflow: auto;
+        }
+        .wrap .box .top ul li {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            list-style: none;
+            position: relative;
+        }
+        .wrap .box .bottom {
+            width: 240px;
+            height: 50px;
+            padding: 5px;
+        }
+        .wrap .box .bottom img {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #cccccc;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            padding: 6px 3px;
+            float: left;
+        }
+        .wrap .box .bottom input {
+            float: left;
+            width: 140px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 8px;
+        }
+        .wrap .box .bottom a {
+            text-decoration: none;
+            color: #9f9fa3;
+            font-size: 24px;
+            height: 35px;
+            line-height: 35px;
+            float: left;
+            margin-left: 5px;
+        }
+        .curr {
+            background: #ff0000;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var top = document.getElementById('top');
+            var oimg = document.getElementById('img');
+            var otxt = document.getElementById('txt');
+            var obtn = document.getElementById('btn');
+            var arrSrc = ['clockImages/2.1.1.3.png','clockImages/2.1.1.4.png'];
+            var onOff = true;
+            oimg.onclick = function () {
+                if (onOff) {
+                    oimg.src = arrSrc[0];
+                    onOff = false;
+                } else {
+                    oimg.src = arrSrc[1];
+                    onOff = true;
+                }
+            }
+            oul = document.createElement('ul');
+            top.appendChild(oul);
+            obtn.onclick = function () {
+               var ali = document.createElement('li');
+               if (oul.children.length == 0) {
+                   oul.appendChild(ali);
+               } else {
+                   oul.insertBefore(ali,oul.children[0]);
+               }
+               if (otxt.value == '') {
+                   alert('发送内容不能为空');
+               } else {
+                   if (onOff) {
+                       ali.innerHTML += '<div class = "left"><img src="' + arrSrc[Number(onOff)] + '"/>' + otxt.value + '</div>';
+                   } else {
+                       ali.innerHTML += '<div class = "right">'  + otxt.value +'<img src="' + arrSrc[Number(onOff)] + '"/>' + '</div>';
+                   }
+                   otxt.value = '';
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="box">
+        <div class="top" id="top"></div>
+        <div class="bottom" id="bottom">
+            <img id="img" src="clockImages/2.1.1.4.png">
+            <input id="txt" type="text">
+            <a href="#" id="btn">发送</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -4,6 +4,7 @@ function $(id) {
 }
 
 function getElementsClassName(obj, className) {
+    console.log(1111);
     if (obj.getElementsByClassName) {
         return obj.getElementsByClassName(className);
     } else {
