@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            position: absolute;
+            transition: all 1s;
+        }
+        .current {
+            transform: rotate(0deg) scale(1.5) !important;
+            left: 50% !important;
+            top: 50% !important;
+            margin-left: -125px;
+            margin-top: -180px;
+            z-index: 998;
+        }
+    </style>
+</head>
+<body>
+<ul id="oul">
+    <li><img src="images/pic1.jpg" alt=""></li>
+    <li><img src="images/pic2.jpg" alt=""></li>
+    <li><img src="images/pic3.jpg" alt=""></li>
+    <li><img src="images/pic4.jpg" alt=""></li>
+    <li><img src="images/pic5.jpg" alt=""></li>
+    <li><img src="images/pic6.jpg" alt=""></li>
+    <li><img src="images/pic7.jpg" alt=""></li>
+    <li><img src="images/pic8.jpg" alt=""></li>
+    <li><img src="images/pic9.jpg" alt=""></li>
+    <li><img src="images/pic10.jpg" alt=""></li>
+</ul>
+<script src="js/underscore.js"></script>
+<script>
+    var screenW = document.documentElement.clientWidth;
+    var screenH = document.documentElement.clientHeight;
+    var oul = document.getElementById('oul');
+    var list = oul.children;
+    _.each(list,function (ele, index) {
+        var x = _.random(0,screenW - ele.offsetWidth);
+        var y = _.random(0,screenH - ele.offsetHeight);
+        ele.style.left = x + 'px';
+        ele.style.top = y + 'px';
+        var angle = _.random(0,360);
+        ele.style.transform = 'rotate(' + angle + 'deg)';
+        ele.onclick = function () {
+            _.each(list,function (e) {
+                e.className = '';
+            });
+            this.className = 'current';
+        }
+    });
+</script>
+</body>
+</html>
