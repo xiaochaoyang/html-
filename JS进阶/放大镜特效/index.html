@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #slider {
+            width: 350px;
+            height: 410px;
+            margin: 100px;
+            position: relative;
+        }
+        #slider .small_box {
+            width: 350px;
+            height: 350px;
+            border: 1px solid #cccccc;
+            position: relative;
+        }
+        #slider .big_box {
+            position: absolute;
+            left: 360px;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid #cccccc;
+            display: none;
+        }
+        #slider .big_box img {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        #slider ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+        #slider ul li {
+            float: left;
+            margin-right: 10px;
+        }
+        #mask {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            opacity: 0.5;;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div class="small_box">
+        <span id="mask"></span>
+        <img src="images/pic001.jpg">
+    </div>
+    <div class="big_box">
+        <img src="images/pic01.jpg">
+    </div>
+    <ul>
+        <li><img src="images/pic0001.jpg"></li>
+        <li><img src="images/pic0002.jpg"></li>
+        <li><img src="images/pic0003.jpg"></li>
+    </ul>
+</div>
+<script>
+    var small_box = document.querySelector('#slider .small_box');
+    var small_box_img = small_box.children[1];
+    var mask = document.querySelector('#mask');
+    var big_box = document.querySelector('#slider .big_box');
+    var big_box_img = big_box.children[0];
+    var slider = document.querySelector('#slider');
+    var list = document.querySelectorAll('#slider ul li');
+    small_box.onmouseover = function () {
+        mask.style.display = 'block';
+        big_box.style.display = 'block';
+        small_box.onmousemove = function (event) {
+            var x = event.pageX - slider.offsetLeft - mask.offsetWidth / 2;
+            var y = event.pageY - slider.offsetTop - mask.offsetHeight / 2;
+            if (x <= 0) {
+                x = 0;
+            } else if (x >= small_box.offsetWidth - mask.offsetWidth - 2){
+                x = small_box.offsetWidth - mask.offsetWidth - 2;
+            }
+            if (y <= 0) {
+                y = 0;
+            } else if (y >= small_box.offsetHeight - mask.offsetHeight - 2) {
+                y = small_box.offsetHeight - mask.offsetHeight - 2;
+            } 
+            mask.style.left = x + 'px';
+            mask.style.top = y + 'px';
+            var distanceX = - x / (small_box.offsetWidth - mask.offsetWidth) * (big_box_img.offsetWidth - big_box.offsetWidth);
+            var distanceY = - y / (small_box.offsetHeight - mask.offsetHeight) * (big_box_img.offsetHeight - big_box.offsetHeight);
+            big_box_img.style.left = distanceX + 'px';
+            big_box_img.style.top = distanceY + 'px';
+        }
+    };
+    small_box.onmouseout = function () {
+        mask.style.display = 'none';
+        big_box.style.display = 'none';
+    }
+    for (var i=0;i<list.length;i++) {
+        var li = list[i];
+        li.index = i + 1;
+        li.onmouseover = function () {
+            small_box_img.src = 'images/pic00' + this.index + '.jpg';
+            big_box_img.src = 'images/pic00' + this.index + '.jpg';
+        }
+    }
+</script>
+</body>
+</html>

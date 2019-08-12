@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<div id="panel">
+    <div class="panel-header">
+        <h2>SeeMyGo教育系统</h2>
+    </div>
+    <div class="panel-content">
+        <div class="user-pwd">
+            <img src="images/icon_people.png">
+            <input placeholder="请输入用户名/手机号" name="user">
+        </div>
+        <div class="user-pwd">
+            <img src="images/icon_password.png">
+            <input placeholder="请输入密码" type="password" name="pwd">
+        </div>
+        <div class="setting">
+            <a href="#"><input type="checkbox">下次自动登录</a>
+            <a href="#" class="pull-right">忘记密码?</a>
+        </div>
+        <button class="login-btn">登 陆</button>
+        <div class="reg">
+            还没账号? <a href="#">立即注册</a>
+        </div>
+        <div class="panel-footer">
+            <span>社交账号登陆：</span>
+            <img src="images/sina.png">
+            <img src="images/weixin.png">
+            <img src="images/qq.png">
+        </div>
+    </div>
+</div>
+<script>
+    var panel_header = document.querySelector('.panel-header');
+    var panel = document.querySelector('#panel');
+    panel_header.onmousedown = function (event) {
+        var distanceX = event.clientX - panel.offsetLeft;
+        var distanceY = event.clientY - panel.offsetTop;
+        document.onmousemove = function (event) {
+            panel.style.left = event.clientX - distanceX + 'px';
+            panel.style.top = event.clientY - distanceY + 'px';
+            return false;
+        };
+        return false;
+    }
+    panel_header.onmouseup = function () {
+        document.onmousemove = null;
+    }
+</script>
+</body>
+</html>

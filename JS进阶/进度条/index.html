@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #slider {
+            width: 800px;
+            height: 30px;
+            margin: 100px auto;
+        }
+        .slider_left {
+            width: 750px;
+            height: 30px;
+            background-color: #cccccc;
+            float: left;
+            position: relative;
+            border-radius: 5px;
+        }
+        .slider_left .slider_btn{
+            width: 25px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            border-radius: 5px;
+        }
+        .slider_left .slider_value{
+            width: 0;
+            height: 100%;
+            background-color: red;
+            border-radius: 5px 0 0 5px;
+        }
+        .slider_right {
+            float: right;
+            line-height: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div class="slider_left">
+        <span class="slider_btn"></span>
+        <div class="slider_value"></div>
+    </div>
+    <div class="slider_right">0%</div>
+</div>
+<script>
+    function $(selector) {
+        return document.querySelector(selector);
+    }
+    var slider_btn = $('#slider .slider_btn');
+    var slider = $('#slider');
+    var slider_left = $('#slider .slider_left');
+    slider_btn.onmousedown = function (event) {
+        event.preventDefault();
+        var distance = event.clientX - slider.offsetLeft - slider_btn.offsetLeft;
+        document.onmousemove = function (event) {
+            event.preventDefault();
+            var x = event.clientX - slider.offsetLeft - distance;
+            if (x <= 0) {
+                x = 0;
+            } else if (x >= slider_left.offsetWidth - slider_btn.offsetWidth) {
+                x = slider_left.offsetWidth - slider_btn.offsetWidth;
+            }
+            slider_btn.style.left = x + 'px';
+            $('.slider_value').style.width = x + 'px';
+            var scale = x / (slider_left.offsetWidth - slider_btn.offsetWidth) * 100;
+            scale = parseInt(scale);
+            $('.slider_right').innerHTML = scale + '%';
+        }
+    };
+    document.onmouseup = function () {
+        document.onmousemove = null;
+    }
+</script>
+</body>
+</html>

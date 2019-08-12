@@ -32,6 +32,14 @@
             text-align: center;
             line-height: 63px;
         }
+        #t-mall {
+            background: url("images/tMall.png") no-repeat;
+            width: 88px;
+            height: 63px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +59,27 @@
 </div>
 <script src="js/underscore.js"></script>
 <script>
-
+var list = document.querySelectorAll('#box li');
+var tMall = document.querySelector('#t-mall');
+var oul = document.querySelector('#box ul');
+var beginX = 0;
+var endX = 0;
+var temp = 0;
+_.each(list,function (ele, index) {
+    ele.onmouseover = function () {
+        endX = this.offsetLeft;
+    };
+    ele.onclick = function () {
+        temp = this.offsetLeft;
+    }
+});
+oul.onmouseout = function () {
+    endX = temp;
+}
+setInterval(function () {
+    beginX = beginX + (endX - beginX) / 10;
+    tMall.style.left = beginX + 'px';
+},20)
 </script>
 </body>
 </html>
