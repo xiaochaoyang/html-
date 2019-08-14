@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<script src="js/utils.js"></script>
+<script>
+    window.onresize = changeColor;
+    function changeColor() {
+        var width = client().width;
+        if (width >= 960) {
+            document.body.style.backgroundColor = 'red';
+        } else if (width >= 640) {
+            document.body.style.backgroundColor = 'blue';
+        } else {
+            document.body.style.backgroundColor = 'green';
+        }
+    }
+</script>
+</body>
+</html>

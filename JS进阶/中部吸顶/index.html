@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        img {
+            vertical-align: top;
+            width: 100%;
+        }
+        section {
+            text-align: center;
+        }
+        section img {
+            width: 70%;
+        }
+        .fixed {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="images/top.png" alt="">
+</header>
+<nav>
+    <img src="images/nav.png" alt="">
+</nav>
+<section>
+    <img src="images/body01.png" alt="">
+    <img src="images/body02.png" alt="">
+</section>
+<script src="utils.js"></script>
+<script>
+    var nav = document.querySelector('nav');
+    var offsetTop = nav.offsetTop;
+    console.log(offsetTop);
+    window.onscroll = function () {
+        var scrollTop = scroll().top;
+        console.log(scrollTop);
+        if (scrollTop >= offsetTop) {
+            nav.className = 'fixed';
+        } else {
+            nav.className = '';
+        }
+    }
+</script>
+</body>
+</html>
