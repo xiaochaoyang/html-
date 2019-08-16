@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        img {
+            vertical-align: top;
+        }
+        #slider {
+            width: 750px;
+            height: 320px;
+            border: 1px solid #dddddd;
+            padding: 10px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #top {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #top ul {
+            width: 4500px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #top li {
+            widows: 750;
+            height: 320px;
+            float: left;
+        }
+        #slider ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #slider ol li {
+            width: 20px;
+            height: 20px;
+            background-color: darkgray;
+            display: inline-block;
+            margin-right: 4px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #slider ol li.current {
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div id="top">
+        <ul id="ul">
+            <li><img src="imgs/pic01.jpg" alt=""></li>
+            <li><img src="imgs/pic02.jpg" alt=""></li>
+            <li><img src="imgs/pic03.jpg" alt=""></li>
+            <li><img src="imgs/pic04.jpg" alt=""></li>
+            <li><img src="imgs/pic05.jpg" alt=""></li>
+            <li><img src="imgs/pic01.jpg" alt=""></li>
+        </ul>
+    </div>
+    <ol id="ol">
+        <li class="current"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    var olList = document.querySelectorAll('#slider #ol li');
+    var oul = document.querySelector('#ul');
+    var currIndex = 0;
+    var sliderIndex = 0;
+    each(olList,function (ele, index) {
+        ele.onmouseover = function () {
+            linear(oul,30,-750 * index);
+            each(olList,function (e) {
+                e.className = '';
+            });
+            this.className = 'current';
+            currIndex = sliderIndex = index;
+        }
+    });
+    var timer = setInterval(autoPlay,1000);
+    function autoPlay() {
+        currIndex++;
+        if (currIndex > 5){
+            oul.style.left = 0;
+            currIndex = 1;
+        }
+        linear(oul,30,-750 * currIndex);
+        sliderIndex++;
+        if (sliderIndex > 4){
+            sliderIndex = 0;
+        }
+        each(olList,function (e) {
+            e.className = '';
+        });
+        olList[sliderIndex].className = 'current';
+    }
+    $('slider').onmouseover = function () {
+        clearInterval(timer);
+    };
+    $('slider').onmouseout = function () {
+        timer = setInterval(autoPlay,1000);
+    }
+</script>
+</body>
+</html>
