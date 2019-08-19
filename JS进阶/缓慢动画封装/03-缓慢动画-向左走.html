@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">缓慢动画-向右走</button>
+<button id="btn1">缓慢动画-向左走</button>
+<div id="box"></div>
+<div id="box1"></div>
+<script src="js/utils.js"></script>
+<script>
+    var timer = null;
+    var beginX = 0;
+    var endX = 800;
+    $('#btn').onclick = function () {
+        buffer($('#box'),800);
+    };
+    $('#btn1').onclick = function () {
+        buffer($('#box'),100);
+    };
+    function buffer(obj, target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var beginX = obj.offsetLeft;
+            var speed = (endX - beginX) / 10;
+            if (beginX <= target) {
+                speed = Math.ceil(speed);
+            } else {
+                speed = Math.floor(speed);
+            }
+            beginX += speed;
+            if (Math.ceil(beginX) == target){
+                clearInterval(obj.timer);
+                beginX = target;
+            }
+            console.log(speed,beginX,endX);
+            obj.style.left = beginX + 'px';
+        },20);
+    }
+</script>
+</body>
+</html>

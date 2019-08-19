@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">缓慢动画-向右走</button>
+<button id="btn1">缓慢动画-向左走</button>
+<div id="box"></div>
+<div id="box1"></div>
+<script src="js/utils.js"></script>
+<script>
+    var timer = null;
+    var beginX = 0;
+    var endX = 800;
+    $('#btn').onclick = function () {
+        buffer($('#box'),{left:500,top:500,height:300});
+    };
+
+    function buffer(obj,data) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for (var k in data) {
+                var beginX = parseFloat(getStyleAttr(obj,k)) || 0;
+                var target = data[k];
+                var speed = (target - beginX) / 10;
+                if (beginX <= target){
+                    speed = Math.ceil(speed);
+                } else {
+                    speed = Math.floor(speed);
+                }
+                beginX += speed;
+                if (Math.ceil(beginX) == target) {
+                    beginX = target;
+                } else {
+                    flag = false;
+                }
+                obj.style[k] = beginX + 'px';
+            }
+            if (flag) {
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+    function getStyleAttr(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];
+        } else {
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+</script>
+</body>
+</html>

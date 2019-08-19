@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #slider {
+            width: 310px;
+            height: 240px;
+            margin: 100px auto;
+            border: 1px solid #000000;
+            background-color: #ff0000;
+            position: relative;
+        }
+        #slider ul {
+            width: 620px;
+            height: 220px;
+            list-style: none;
+            position: relative;
+        }
+        #slider ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #slider .ctl-btn .prev,
+        #slider .ctl-btn .next{
+            width: 20px;
+            height: 34px;
+            background: url("images/icon.png") no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+        }
+        #slider .ctl-btn .prev {
+            left: 0;
+        }
+        #slider .ctl-btn .next {
+            background-position: -9px -45px;
+            right: 0;
+        }
+        #slider .ctl {
+            text-align: center;
+            font-size: 0;
+        }
+        #slider .ctl .ctl-icon {
+            width: 24px;
+            height: 5px;
+            background: url("images/icon.png") no-repeat -24px -790px;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #slider .ctl .ctl-icon.current {
+            background-position: 0 -770px;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <ul>
+        <li><img src="images/1.jpeg"></li>
+        <li><img src="images/2.jpeg"></li>
+        <li><img src="images/3.jpeg"></li>
+        <li><img src="images/4.jpeg"></li>
+        <li><img src="images/5.jpeg"></li>
+        <li><img src="images/6.jpeg"></li>
+    </ul>
+    <div class="ctl-btn">
+        <div class="prev"></div>
+        <div class="next"></div>
+    </div>
+    <div class="ctl"></div>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    var list = $('#slider ul li');
+    each(list,function (ele, index) {
+        var span = document.createElement('span');
+        $('#slider .ctl').appendChild(span);
+        if (index !== 0) {
+            ele.style.left = ele.offsetWidth + 'px';
+            span.className = 'ctl-icon';
+        } else {
+            span.className = 'ctl-icon current';
+        }
+    })
+</script>
+</body>
+</html>
