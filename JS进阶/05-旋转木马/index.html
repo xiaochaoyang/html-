@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 1200px;
+            height: 500px;
+            margin: 30px auto;
+            position: relative;
+        }
+        #box ul {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #box ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #box ul li img {
+            width: 100%;
+        }
+        #box .ctl span {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            margin-top: -56px;
+            z-index: 998;
+        }
+        #box .ctl {
+            opacity: 0;
+        }
+        #box .ctl .prev {
+            background: url("images/prev.png") no-repeat;
+            left: 0;
+            opacity: inherit;
+        }
+        #box .ctl .next {
+            background: url("images/next.png") no-repeat;
+            right: 0;
+            opacity: inherit;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="images/slidepic1.jpg" alt=""></li>
+        <li><img src="images/slidepic2.jpg" alt=""></li>
+        <li><img src="images/slidepic3.jpg" alt=""></li>
+        <li><img src="images/slidepic4.jpg" alt=""></li>
+        <li><img src="images/slidepic5.jpg" alt=""></li>
+    </ul>
+    <div class="ctl">
+        <span class="prev"></span>
+        <span class="next"></span>
+    </div>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    var box = $('#box');
+    var list = $('#box ul li');
+    var ctl = $('#box .ctl');
+    box.onmouseover = function () {
+        buffer(ctl,{opacity:1});
+    }
+    box.onmouseout = function () {
+        buffer(ctl,{opacity: 0});
+    }
+    var dataArr = [
+        {
+            width:400,
+            top:20,
+            left:50,
+            opacity:0.2,
+            zIndex:2
+        },
+        {
+            width:600,
+            top:70,
+            left:0,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:1,
+            zIndex:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:0.2,
+            zIndex:2
+        }
+    ];
+    function ref() {
+        each(dataArr,function (ele, index) {
+            buffer(list[index],ele);
+        })
+    }
+    ref();
+    $('#box .next').onclick = function () {
+        var e = dataArr.pop();
+        dataArr.unshift(e);
+        ref();
+    }
+    $('#box .prev').onclick = function () {
+        var e = dataArr.shift();
+        dataArr.push(e);
+        ref();
+    }
+</script>
+</body>
+</html>
