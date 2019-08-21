@@ -96,16 +96,18 @@
     })
     var spans = $('#slider .ctl .ctl-icon');
 
-    next.onclick = function () {
+    function changeRight() {
         buffer(list[currentIndex],{left:-imgW});
         currentIndex++;
-        if (currentIndex > 5) {
+        if (currentIndex > list.length - 1) {
             currentIndex = 0;
         }
         list[currentIndex].style.left = imgW + 'px';
         buffer(list[currentIndex],{left:0});
         changeSlider();
     }
+    next.onclick = changeRight;
+
     prev.onclick = function () {
         buffer(list[currentIndex],{left:imgW});
         currentIndex--;
@@ -121,6 +123,28 @@
             element.className = 'ctl-icon';
         });
         spans[currentIndex].className = 'ctl-icon current';
+    }
+    each(spans,function (ele, index) {
+        ele.onclick = function () {
+            if (index > currentIndex) {
+                buffer(list[currentIndex],{left:-imgW});
+                list[index].style.left = imgW + 'px';
+                buffer(list[index],{left:0});
+            } else if (index < currentIndex) {
+                buffer(list[currentIndex],{left:imgW});
+                list[index].style.left = -imgW + 'px';
+                buffer(list[index],{left:0});
+            }
+            currentIndex = index;
+            changeSlider();
+        }
+    })
+    var timer = setInterval(changeRight,1000);
+    $('#slider').onmouseover = function () {
+        clearInterval(timer);
+    };
+    $('#slider').onmouseout = function () {
+        timer = setInterval(changeRight,1000);
     }
 </script>
 </body>
