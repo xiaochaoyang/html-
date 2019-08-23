@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function dog() {
+        var obj = {};
+        obj.name = '未命名';
+        obj.age = 0;
+        obj.sex = '男';
+        obj.eat = function () {
+            console.log('吃了');
+        }
+        obj.run = function () {
+            console.log('跑了');
+        }
+        return obj;
+    }
+    var dog1 = dog();
+    dog1.name = '小会';
+    dog1.age = 1;
+    console.log(dog1);
+</script>
+</body>
+</html>

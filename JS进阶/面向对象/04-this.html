@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="btn">我是按钮</div>
+<script>
+    //this
+    // 1.this在事件指令中指向事件源
+    // 2.this在定时器中指向window
+    // 3.this所在的函数属于哪个对象this就指向哪个对象
+    // document.getElementById('btn').onclick = function () {
+    //     console.log(this);
+    // }
+    // setInterval(function () {
+    //     console.log(this);
+    // },1000);
+    // var obj = {
+    //     name:'zs',
+    //     eat: function () {
+    //         console.log(this.name);
+    //     }
+    // };
+    // obj.eat();
+
+    var a = 10;
+    function fn() {
+        console.log(this);
+    }
+    fn();
+</script>
+</body>
+</html>
